@@ -3,9 +3,11 @@ pipeline {
 
       stages {
 
-        stage ('test') {
+        stage('test') {
             steps {
-              sh "mvn clean compile test"
+                dir('proyectoJenkins') {
+                    sh 'mvn clean compile test'
+                }
             }
         }
         stage ('Build application') {
